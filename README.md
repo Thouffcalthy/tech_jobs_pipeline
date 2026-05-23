@@ -1,57 +1,107 @@
-**Read this in other lannguage**
+# Tech Jobs Data Pipeline
 
-# Tech Job Market Data Pipeline (Work in Progress)
-
-This project is a hands-on data engineering exercise focused on designing and implementing a structured ingestion pipeline for job market data.
-
-The initial focus is on building a solid PostgreSQL schema before implementing the full extraction and transformation pipeline. The goal is to understand how data from different external sources can be normalized, validated, and stored in a consistent structure.
-
-At this stage, the relational schema is implemented and includes integrity constraints, controlled categorical attributes, and explicit many-to-many relationships. The ingestion logic is currently under development.
+ETL pipeline that extracts tech job postings from public APIs, transforms and normalizes the data, and loads it into a PostgreSQL star schema for analysis.
 
 ---
 
-## Architecture Direction
+## Stack
 
-The intended workflow follows a batch-oriented approach:
+- **Python 3.13** — extraction, transformation, and load logic
+- **PostgreSQL** — star schema with bridge table
+- **psycopg2** — database connection
+- **requests** — API calls
+- **python-dotenv** — environment variables
 
-Public APIs --> Extraction --> Transformation --> PostgreSQL
+---
 
-The extraction layer will be responsible for integrating with different APIs, handling pagination, tracking data sources, and preventing duplicate ingestion using composite identifiers.
+## Architecture
 
-The transformation step will standardize experience levels, salary ranges, and work modes, while cleaning inconsistent fields. Loading will be controlled to preserve referential integrity and enforce database-level constraints.
+![Pipeline Flow](docs/images/pipeline_flow.png)
+
+1. **Extract** — calls the RemoteOK API and saves a JSON snapshot to disk with timestamp
+2. **Transform** — cleans, normalizes, and enriches the raw data (locations, salaries, tags, dates)
+3. **Load** — inserts into a PostgreSQL star schema using lookup tables and idempotent inserts
 
 ---
 
 ## Data Model
 
-The schema is normalized and centered around the jobs table, which connects companies, locations, sources and skills.
+![Star Schema](docs/images/star_schema.png)
 
-Key characteristics of the model include:
+Key design decisions:
+- `ON CONFLICT DO NOTHING` for idempotent dimension loads
+- `is_active / last_seen` on `fact_jobs` to track job availability over time
+- Bridge table for tag analysis without denormalization
+- Single database connection with rollback on failure
 
-- Use of GENERATED ALWAYS AS IDENTITY
-- ENUM types for controlled attributes such as job mode and experience level.
-- Composite uniqueness for external identifiers.
-- Check constraints for salary validation.
-- Conditional constraints for onsite and hybrid roles.
-- Separation between raw and normalized experience fields.
-- A bridge table (jobs_skills) to manage many-to-many relationships.
+---
 
-Business logic is partially enforced at the database level to reduce downstream data cleaning and improve analytical reliability.
+## Project Structure
+
+```
+tech_jobs_pipeline/
+├── src/
+│   ├── extract/          # API extraction
+│   ├── transform/        # Data cleaning and normalization
+│   ├── load/             # Database loading
+│   ├── model/            # Dimension builders
+│   └── utils/            # DB connection, logger, mappings
+├── data/
+│   └── raw/              # JSON snapshots (gitignored)
+├── docs/                 # Research and profiling scripts
+├── sql/                  # PostgreSQL schema
+├── logs/                 # Pipeline execution logs (gitignored)
+├── .env                  # Credentials (gitignored)
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Setup
+
+1. Clone the repository
+```bash
+git clone https://github.com/Thouffcalthy/tech_jobs_pipeline.git
+cd tech_jobs_pipeline
+```
+
+2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+3. Create a `.env` file in the root with your PostgreSQL credentials
+```
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=your_database
+DB_USER=your_user
+DB_PASSWORD=your_password
+```
+
+4. Run the PostgreSQL schema from `sql/`
+
+5. Run the pipeline
+```bash
+cd src
+python main.py
+```
 
 ---
 
 ## Current Status
 
-- Relational schema completed 
-- Integrity constraints implemented
-- Extraction and transformation logic in progress
+- Extract, transform, load pipeline fully functional
+- RemoteOK API integrated
+- Star schema with bridge table implemented
+- Logging with file and console output
+- Location normalization with country mapping
+- Tag classification by category
 
-The design is expected to evolve as the ingestion layer matures.
+## Roadmap
 
----
-
-## Development Approach
-
-This repository is built incrementally, prioritizing clarity and data integrity over rapid feature expansion. Refactoring is considered part of the process as new requirements emerge.
-
-
+- Additional API sources (Adzuna, Arbeit Now)
+- Power BI dashboard
+- Automated scheduling
+- Unit tests
