@@ -1,0 +1,41 @@
+{
+  "seniority": [
+    "junior", "jr", "senior", "sr", "lead", "mid", "intern", "internship", "director",
+    "ceo", "cto", "founder", "executive", "supervisor", "administrator" 
+  ],
+
+  "rol": [
+    "engineer", "developer", "manager", "architect", "consultant", "recruiter", "recruitment", 
+    "recruiting", "coordinator", "analyst", "designer", "marketer", "copywriter", "copywriting", 
+    "trainer", "training", "accountant", "accounting", "bookkeeping", "assistant", "strategist", 
+    "strategy", "dba", "dev", "leader", "support", "qa", "test", "testing", "devops", "engineer", 
+    "web dev", "operations", "operational", "management", "technical"
+  ],
+
+  "technology": [
+    "postgresql", "python", "java", "oracle", "postgres", "power bi", "react", 
+    "javascript", "typescript", "node", "node.js",
+    "django", "docker", "ansible", "redis", "firebase",
+    "gcp", "linux", "swift", "golang", "go",
+    "salesforce", "shopify", "jira", "excel", "microsoft",
+    "api", "serverless", "embedded", "assembly", "c",
+    "mobile", "frontend", "backend", "back-end", "full-stack",
+    "web", "cloud", "infosec", "robotics"
+  ],
+
+  "domain": [
+    "software", "data", "security", "cloud", 
+    "analytics", "ai", "ml", "saas", "ecommerce", "e-commerce",
+    "fintech", "crypto", "banking", "bank", "finance", "financial",
+    "healthcare", "health", "medical", "biotech",
+    "education", "educational", "gaming", "telecom", "voip",
+    "marketing", "seo", "ads", "content", "design", "ux",
+    "legal", "hr", "payroll", "sales", "growth",
+    "engineering", "devops", "reliability", "system",
+    "consulting", "investment", "travel", "adult"
+  ],
+
+  "work_type": [
+    "digital nomad", "non tech", "part-time", "full-time"
+  ]
+}

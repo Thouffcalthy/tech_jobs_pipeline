@@ -1,0 +1,26 @@
+# Enviroment variables
+.env 
+
+# Python
+--pycache--/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Data
+data/raw/
+data/processed/
+data/staging/
+
+# Logs
+Logs/
+
+# VSCode
+.vscode/
+
+# Virtual enviroment
+venv/
+.venv/
+env/
+
