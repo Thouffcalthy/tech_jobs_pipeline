@@ -101,7 +101,7 @@ python main.py
 
 ## Roadmap
 
-- Additional API sources (Adzuna, Arbeit Now)
+- Additional API sources (Adzuna)
 - Power BI dashboard
 - Automated scheduling
 - Unit tests
