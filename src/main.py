@@ -42,7 +42,6 @@ def main():
     path = os.path.normpath(raw_path)
     print(f"raw data: {path}")
 
-    #path = "data/raw/remoteok/2026/05/20260521_112514.json"
   except Exception as e:
     logger.error(f"Extract failed: {e}")
     return
