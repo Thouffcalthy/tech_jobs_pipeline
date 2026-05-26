@@ -9,7 +9,9 @@
     "recruiting", "coordinator", "analyst", "designer", "marketer", "copywriter", "copywriting", 
     "trainer", "training", "accountant", "accounting", "bookkeeping", "assistant", "strategist", 
     "strategy", "dba", "dev", "leader", "support", "qa", "test", "testing", "devops", "engineer", 
-    "web dev", "operations", "operational", "management", "technical"
+    "web dev", "operations", "operational", "management", "technical",
+    "admin", "instructor", "teacher", "teaching", "tutor", "writer", 
+    "sourcer", "controller", "exec", "consult"
   ],
 
   "technology": [
@@ -20,7 +22,8 @@
     "salesforce", "shopify", "jira", "excel", "microsoft",
     "api", "serverless", "embedded", "assembly", "c",
     "mobile", "frontend", "backend", "back-end", "full-stack",
-    "web", "cloud", "infosec", "robotics"
+    "web", "cloud", "infosec", "robotics",
+    "c++", "git", "rails", "macos", "photoshop", "illustrator", "3d"
   ],
 
   "domain": [
@@ -32,10 +35,12 @@
     "marketing", "seo", "ads", "content", "design", "ux",
     "legal", "hr", "payroll", "sales", "growth",
     "engineering", "devops", "reliability", "system",
-    "consulting", "investment", "travel", "adult"
+    "consulting", "investment", "travel", "adult",
+    "animation", "branding", "game", "ui", "front-end", "ops",
+  "scrum", "math", "mathematics"
   ],
 
   "work_type": [
-    "digital nomad", "non tech", "part-time", "full-time"
+    "digital nomad", "non tech", "part-time", "full-time","fulltime"
   ]
 }
