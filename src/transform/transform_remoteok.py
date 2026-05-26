@@ -85,6 +85,7 @@ def parse_location(job):
 
     # Default
   city = None
+  parts = []
 
   # empty --> Unknown
   if raw_loc == "":
@@ -116,12 +117,22 @@ def parse_location(job):
   # ---- Split ----
   if "," in raw_loc:
     parts = [p.strip() for p in clean_loc.split(",")]
-    possible_country = parts[-1].strip().lower()
+    parts = [p for p in parts if p] # Filter empty parts
+
+    if parts:
+      possible_country = parts[-1].strip().lower()
+    else:
+     possible_country = clean_loc.strip().lower()
   else:
     possible_country = clean_loc.strip().lower()
 
   # Country nomalization 
   matched_country = LOCATION_MAPPING.get(possible_country)
+
+  # Fallback
+  if matched_country is None and "," in raw_loc and len(parts)>1:
+    possible_country_fallback = parts[0].strip().lower()
+    matched_country = LOCATION_MAPPING.get(possible_country_fallback)
 
   # ---- OUTPUT ----
   job["location_name"] = raw_loc.title()
