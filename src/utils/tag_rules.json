@@ -11,7 +11,8 @@
     "strategy", "dba", "dev", "leader", "support", "qa", "test", "testing", "devops", "engineer", 
     "web dev", "operations", "operational", "management", "technical",
     "admin", "instructor", "teacher", "teaching", "tutor", "writer", 
-    "sourcer", "controller", "exec", "consult"
+    "sourcer", "controller", "exec", "consult","sys admin", "virtual assistant", "product designer", 
+    "product manager", "project manager", "content writing"
   ],
 
   "technology": [
@@ -23,7 +24,8 @@
     "api", "serverless", "embedded", "assembly", "c",
     "mobile", "frontend", "backend", "back-end", "full-stack",
     "web", "cloud", "infosec", "robotics",
-    "c++", "git", "rails", "macos", "photoshop", "illustrator", "3d"
+    "c++", "git", "rails", "macos", "photoshop", "illustrator", "3d",
+    "css", "php", "wordpress", "hardware"
   ],
 
   "domain": [
@@ -37,10 +39,13 @@
     "engineering", "devops", "reliability", "system",
     "consulting", "investment", "travel", "adult",
     "animation", "branding", "game", "ui", "front-end", "ops",
-  "scrum", "math", "mathematics"
+    "scrum", "math", "mathematics","data science", "artificial intelligence", 
+    "architecture", "data annotation", "social media", "music", "game dev",
+    "front end", "full stack", "stats"
   ],
 
   "work_type": [
-    "digital nomad", "non tech", "part-time", "full-time","fulltime"
+    "digital nomad", "non tech", "part-time", "full-time","fulltime", "full time", 
+    "part time", "telecommuting", "work from home", "remote"
   ]
 }
