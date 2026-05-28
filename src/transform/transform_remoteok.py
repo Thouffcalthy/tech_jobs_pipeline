@@ -46,8 +46,8 @@ def clean_jobs(jobs, extracted_at):
       "job_id": job.get("id"),
       "source": "remoteok",
       "date": job.get("date"),
-      "company": (job.get("company") or "").strip(),
-      "position": (job.get("position") or "").strip(),
+      "company": (job.get("company") or "").strip()[:100],
+      "position": (job.get("position") or "").strip()[:100],
       "tags": job.get("tags") or [],
       "location": (job.get("location") or "").strip(),
       "salary_min": sal_min,
@@ -135,7 +135,7 @@ def parse_location(job):
     matched_country = LOCATION_MAPPING.get(possible_country_fallback)
 
   # ---- OUTPUT ----
-  job["location_name"] = raw_loc.title()
+  job["location_name"] = raw_loc.title()[:100] # truncate to 100 characters
   job["country"] = matched_country if matched_country else "Unknown"
   job["city"] = city
 
