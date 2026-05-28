@@ -40,7 +40,6 @@ def main():
     root_path = "data/raw/remoteok/"
     raw_path  = get_latest_raw_file(root_path)
     path = os.path.normpath(raw_path)
-    print(f"raw data: {path}")
 
   except Exception as e:
     logger.error(f"Extract failed: {e}")
