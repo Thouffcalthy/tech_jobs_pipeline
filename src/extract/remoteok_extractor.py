@@ -57,4 +57,5 @@ def extract_remoteok():
   with open(file_path, "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2)
 
-  logger.info(f"Saved {len(data)} records to {file_path}")
+  #logger.info(f"Saved {len(data)} records to {file_path}")
+  logger.info(f"Saved {len(data)} records to .../{Path(file_path).parent.name}/{Path(file_path).name}")
