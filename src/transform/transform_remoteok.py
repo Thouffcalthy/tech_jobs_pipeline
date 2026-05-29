@@ -28,6 +28,13 @@ def load_snapshot(path):
 
   return jobs, extracted_at
 
+def fix_encoding(text):
+  if not text:
+    return text
+  try:
+    return text.encode('latin-1').encode('utf-8')
+  except (UnicodeDecodeError, UnicodeEncodeError):
+    return text
 
 def clean_jobs(jobs, extracted_at):
   # Basic cleaning of raw job records
@@ -46,10 +53,10 @@ def clean_jobs(jobs, extracted_at):
       "job_id": job.get("id"),
       "source": "remoteok",
       "date": job.get("date"),
-      "company": (job.get("company") or "").strip()[:100],
-      "position": (job.get("position") or "").strip()[:100],
+      "company": fix_encoding((job.get("company") or "").strip())[:100],
+      "position": fix_encoding((job.get("position") or "").strip())[:100],
       "tags": job.get("tags") or [],
-      "location": (job.get("location") or "").strip(),
+      "location": fix_encoding((job.get("location") or "").strip()),
       "salary_min": sal_min,
       "salary_max": sal_max,
       "modality": "remote",
