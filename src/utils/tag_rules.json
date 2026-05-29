@@ -12,7 +12,7 @@
     "web dev", "operations", "operational", "management", "technical",
     "admin", "instructor", "teacher", "teaching", "tutor", "writer", 
     "sourcer", "controller", "exec", "consult","sys admin", "virtual assistant", "product designer", 
-    "product manager", "project manager", "content writing"
+    "product manager", "project manager", "content writing", "bus dev", "quality assurance"
   ],
 
   "technology": [
@@ -25,7 +25,7 @@
     "mobile", "frontend", "backend", "back-end", "full-stack",
     "web", "cloud", "infosec", "robotics",
     "c++", "git", "rails", "macos", "photoshop", "illustrator", "3d",
-    "css", "php", "wordpress", "hardware", "html", "laravel", "vue"
+    "css", "php", "wordpress", "hardware", "html", "laravel", "vue","graphql", "amazon"
   ],
 
   "domain": [
@@ -41,7 +41,7 @@
     "animation", "branding", "game", "ui", "front-end", "ops",
     "scrum", "math", "mathematics","data science", "artificial intelligence", 
     "architecture", "data annotation", "social media", "music", "game dev",
-    "front end", "full stack", "stats"
+    "front end", "full stack", "stats", "vfx"
   ],
 
   "work_type": [
